@@ -11,7 +11,7 @@ def send_ip(update: Update, context: CallbackContext) -> None:
     if update.effective_user.id.real == my_user:
         print("Sending IP to authorized user...")
         try:
-            resp = requests.get("https://ifconfig.me")
+            resp = requests.get("https://ifconfig.me", timeout=10)
         except:
             update.message.reply_text("it ain't workin atm")
             return
